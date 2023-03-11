@@ -1,34 +1,37 @@
 name: Android CI
 
 on:
-push:
-  branches: [master]
-pull_request:
-  branches: [master]
+   push:
+     branches: [ master ]
+   pull_request:
+     branches: [ master ]
 
-jobs:
-  build:
+   workflow_dispatch:
+
+ jobs:
+   build:
 
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v1
-      - name: set up JDK
-        uses: actions/setup-java@v1
+
+      - name: Run a one-line script
+        run: echo Hello world
+
+      - name: Run a multi-line script
+        run: |
+                echo Run other lines
+                echo test, deploy and built
+
+      - name: Run Lint
+        run: .\gradlew lint
+
+      - name: Upload a html file
+        uses: actions/upload-articraft@v2
         with:
-          java-version: 1.8
+          name: index.html
+          path: app/build/reports/lint-results-debug.html
 
-        - name : Run Tests
-          run: ./gradlew test
 
-            - name : Run a one-line script
-              run: echo Hello world
-
-            - name: Run a multi-line script
-              run: |
-                  echo Run other lines
-                  echo test, deploy and built
-
-          -name: Build Project
-           run: ./gradlew assemble
 
