@@ -21,11 +21,11 @@ jobs:
           echo Run other lines
           echo test, deploy and built
 
-      - name: Run Lint
-        run: ./gradlew lintDebug
-
       - name: Change wrapper permissions
         run: chmod +x ./gradlew
+
+      - name: Run Lint
+        run: ./gradlew lintDebug
 
       - name: Upload a html file
         uses: actions/upload-artifact@v2
