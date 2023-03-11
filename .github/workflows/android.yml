@@ -24,6 +24,9 @@ jobs:
       - name: Run Lint
         run: ./gradlew lintDebug
 
+      - name: Change wrapper permissions
+        run: chmod +x ./gradlew
+
       - name: Upload a html file
         uses: actions/upload-artifact@v2
         with:
