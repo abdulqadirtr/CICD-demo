@@ -7,8 +7,7 @@ on:
    branches: [ actionsdemo ]
 
 jobs:
-  build:
-
+  lint:
     runs-on: ubuntu-latest
 
     steps:
