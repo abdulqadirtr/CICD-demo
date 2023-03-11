@@ -22,7 +22,7 @@ jobs:
           echo test, deploy and built
 
       - name: Run Lint
-        run: .\gradlew lint
+        run: ./gradlew lint
 
       - name: Upload a html file
         uses: actions/upload-artifact@v2
