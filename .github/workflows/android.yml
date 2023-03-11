@@ -1,10 +1,10 @@
 name: Android CI
 
 on:
-push:
-  branches: [master]
-pull_request:
-  branches: [master]
+  push:
+   branches: [ actionsdemo ]
+  pull_request:
+   branches: [ actionsdemo ]
 
 jobs:
   build:
@@ -19,8 +19,8 @@ jobs:
 
       - name: Run a multi-line script
         run: |
-                echo Run other lines
-                echo test, deploy and built
+          echo Run other lines
+          echo test, deploy and built
 
       - name: Run Lint
         run: .\gradlew lint
