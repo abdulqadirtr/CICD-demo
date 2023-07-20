@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - master
-      - uploading-apk   # Add the 'action' branch here
+      - testapk   # Add the 'action' branch here
 
 jobs:
   build:
