@@ -26,5 +26,5 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: app-debug
-          path: app/debug/app-debug.apk  # Update the path to point to the debug APK location
+          path: app/debug/app-debug.abb  # Update the path to point to the debug APK location
           distribution: public
