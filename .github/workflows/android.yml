@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+      - uploading-apk   # Add the 'action' branch here
 
 jobs:
   build:
@@ -11,18 +12,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v1
-      - name: set up JDK
-        uses: actions/setup-java@v1
+      - uses: actions/checkout@v2
+
+      - name: Set up JDK
+        uses: actions/setup-java@v2
         with:
-          java-version: 1.8
+          java-version: '1.8'
 
       - name: Build with Gradle
-          run: ./gradlew assembleDebug    # Change this line to assembleDebug for debug APK
+        run: ./gradlew assembleDebug
 
-            - name: Upload AppBundle
-              uses: actions/upload-artifact@v2
-              with:
-                name: app-debug
-                path: app/debug/app-debug.abb   # Point to the debug APK location
-
+      - name: Upload APK
+        uses: actions/upload-artifact@v2
+        with:
+          name: app-debug
+          path: app/debug/app-debug.apk  # Update the path to point to the debug APK location
