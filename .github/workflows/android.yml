@@ -27,3 +27,4 @@ jobs:
         with:
           name: app-debug
           path: app/debug/app-debug.apk  # Update the path to point to the debug APK location
+          distribution: public
