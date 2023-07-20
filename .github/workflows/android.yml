@@ -22,9 +22,9 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew build
 
-      - name: Upload APK
-        uses: actions/upload-artifact@v2
+      - name: Upload AAB
+        id: uploadArtifact
+        uses: actions/upload-artifact@v1
         with:
-          name: app-debug
-          path: app/debug/app-debug.abb  # Update the path to point to the debug APK location
-          distribution: public
+         name: app
+         path: app/build/outputs/bundle/debug/app-release.aab
