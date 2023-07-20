@@ -25,10 +25,13 @@ jobs:
 
       - name: Build with Gradle
         run: ./gradlew build
-
+        
+      - name: Build the app bundle
+        run: ./gradlew bundleDebug
+     
       - name: Upload AAB
         id: uploadArtifact
         uses: actions/upload-artifact@v1
         with:
-         name: app
-         path: app/debug/app-release.aab
+         path: app/debug/*.aab
+ 
